@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cuberto | Digital Product Agency</title>
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
@@ -17,7 +17,28 @@
 
     <!-- special-button -->
     <div class="special">
-      <video src="./assets/avatar.mp4" autoplay loop muted></video>
+      <div class="cta-contain">
+        <svg class="round" viewBox="0 0 200 200">
+          <defs>
+            <path
+              id="circlePath"
+              d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"
+            />
+          </defs>
+          <text>
+            <textPath href="#circlePath">
+              • Contact Me • Contact Me • Contact Me • Contact Me
+            </textPath>
+          </text>
+        </svg>
+        <video
+          class="cta-video"
+          src="./assets/avatar.mp4"
+          autoplay
+          loop
+          muted
+        ></video>
+      </div>
     </div>
     <!-- navbar -->
     <header>
@@ -122,11 +143,11 @@
             <li>Projects</li>
             <li>Company</li>
             <li>Blog</li>
-            <li>Contacts</li>
+            <li>Contact</li>
           </ul>
         </div>
         <div class="mob-menu">
-          <i class="ri-menu-line"></i>
+          <button><i class="ri-menu-line"></i></button>
         </div>
       </nav>
     </header>
@@ -134,8 +155,8 @@
     <!-- hero text -->
     <div class="hero-text">
       <h1>
-        Design agency focused <br />
-        on AI-driven products
+        <span>Design agency focused</span>
+        <span>on AI-driven products </span>
       </h1>
       <p>
         Cuberto is a digital design and technology partner focused on smart
@@ -160,13 +181,24 @@
           solutions for their businesses, creating memorable websites and
           digital products.
         </p>
-        <br>
+        <br />
         <p>
           Cuberto doesn't do cookie-cutter solutions and we build products
           exactly as they were during the design phase, no short cuts or
           simplifications.
         </p>
-        <button>What we do</button>
+        <button class="button">What we do</button>
+      </div>
+    </section>
+
+    <!-- featured projects -->
+    <section class="services">
+      <div class="service-head">
+        <h1>Our Services</h1>
+         <p>
+        From motion design to AI-powered products — we design and build
+        interfaces for the future.
+      </p>
       </div>
     </section>
 

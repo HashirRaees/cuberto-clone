@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTA Button with Circular Text</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+    }
+
+    .cta-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    /* Circle text */
+    svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg); /* start at top */
+    }
+
+    text {
+      fill: white;
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ff4d5a;
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 77, 90, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="cta-container">
+    <!-- SVG circular text -->
+    <svg viewBox="0 0 200 200">
+      <defs>
+        <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"/>
+      </defs>
+      <text>
+        <textPath href="#circlePath">
+          • Book a Call Now • Book a Call Now • Book a Call Now
+        </textPath>
+      </text>
+    </svg>
+
+    <!-- CTA button -->
+    <button class="cta-btn">Click Me</button>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Animate text rotating around circle
+    gsap.to(".round", {
+      rotation: 360,
+      transformOrigin: "50% 50%",
+      repeat: -1,
+      duration: 10,
+      ease: "linear"
+    });
+  </script>
+</body>
+</html>

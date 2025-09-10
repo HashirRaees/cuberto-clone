@@ -1,26 +1,36 @@
 // hero section text animations
 
-const splitHeading = new SplitText(".hero-text h1", {
+const splitHeading = new SplitText(".hero-text h1 span", {
   types: "words",
 });
 const splitPara = new SplitText(".hero-text p", {
   types: "lines, words, chars",
 });
+var splitNav = new SplitText('.nav-links ul li',{
+  types : "words"
+})
+
+gsap.from(splitNav.words,{
+  y : 40,
+  opacity: 1,
+  duration : 0.7,
+  stagger: 0.10,
+})
 
 gsap.from(splitHeading.words, {
   y: 80,
-  opacity: 0,
-  duration: 1.5,
+  opacity : 1,
+  duration: 1.6,
   ease: "power4.out",
-  stagger: 0.08,
+  stagger: 0.10,
 });
 
 gsap.from(splitPara.lines, {
   y: 80,
-  opacity: 0,
+  opacity: 1,
   duration: 1.5,
   ease: "power4.out",
-  stagger: 0.25,
+  stagger: 0.20,
 });
 
 // custom cursor animation
@@ -73,30 +83,83 @@ gsap.from(splitPara2.lines, {
 
 // button cursor animation
 
-var buttons = document.querySelector('button');
+var buttons = document.querySelector('.button');
 
 buttons.addEventListener('mouseenter',function(){
     gsap.to(cursor,{
-        backgroundColor: 'white',
+        filter : 'invert(1)',
+        scale : 2,
     })
 });
 buttons.addEventListener('mouseleave',function(){
     gsap.to(cursor,{
-        backgroundColor: 'black',
+        filter : 'invert(0)',
+        scale : 1,
     })
 });
 
-// logo cursor animation
+// service section animations
 
-var logo = document.querySelector('.logo');
+var service = document.querySelector('.services');
 
-logo.addEventListener('mouseenter', function(){
-    gsap.to(cursor,{
-        backgroundColor : 'transparent',
-    })
+service.addEventListener('mouseenter', function(){
+  gsap.to(cursor,{
+    filter : 'invert(1)'
+  })
+})
+service.addEventListener('mouseleave', function(){
+  gsap.to(cursor,{
+    filter : 'invert(0)'
+  })
+})
+
+function ServiceHeadingAnim(){
+ var splitHeading2 = new SplitText('.service-head h1',{
+  types : 'words'
 });
-logo.addEventListener('mouseleave',function(){
-    gsap.to(cursor,{
-        backgroundColor: 'black',
-    })
-});
+
+gsap.from(splitHeading2.words,{
+  y : 90,
+  duration : 0.8,
+  stagger : 0.12,
+  scrollTrigger : {
+    // markers : true,
+    scroller : 'body',
+    trigger : '.service-head h1',
+    start : 'top 80%',
+    end : 'top 79%',
+  },
+  scrub : 3,
+})
+}
+ServiceHeadingAnim();
+
+function SeviceParaAnim(){
+  var splitPara3 = new SplitText('.service-head p',{
+    types : 'lines'
+  })
+  gsap.from(splitPara3.lines,{
+    y: 40,
+    stagger : 0.2,
+    duration : 0.8,
+    scrollTrigger : {
+    // markers : true,
+    scroller : 'body',
+    trigger : '.service-head h1',
+    start : 'top 80%',
+    end : 'top 79%',
+  },
+  scrub : 3,
+  })
+}
+SeviceParaAnim()
+// function toggleMenu() {
+//       document.getElementById("sideMenu").classList.toggle("active");
+// }{
+gsap.to(".round", {
+      rotation: 360,
+      transformOrigin: "50% 50%",
+      repeat: -1,
+      duration: 12,
+      ease: "linear"
+    });
